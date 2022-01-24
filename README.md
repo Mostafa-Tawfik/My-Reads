@@ -9,9 +9,16 @@ Create a bookshelf app that allows you to select and categorize books you have r
 
 <br>
 
-# App Functionality
+# TL;DR
 
-The application was created with create-react-app and requires only npm install and npm start to get it installed and launched.
+To get started developing right away:
+
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
+
+<br>
+
+# App Functionality
 
 In this application, the main page displays a list of "shelves" (i.e. categories), each of which contains a number of books. The three shelves are:
 
