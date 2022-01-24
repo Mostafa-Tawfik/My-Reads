@@ -4,23 +4,17 @@ import './App.css';
 // import logo from './logo.svg';
 import Shelves from './components/Shelves';
 import Search from './components/Search';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//       </header>
-//     </div>
-//   );
-// }
+import Data from './Data'
 
 export default function BooksApp() {
 
+  const [books, setBooks] = React.useState(Data)
+
+  // console.log(books);
   return (
     <div className="app">
       <Routes>
-        <Route path='/' element={<Shelves/>}/>
+        <Route path='/' element={<Shelves books={books}/>}/>
         <Route path='/search' element={<Search/>}/>
         
       </Routes>

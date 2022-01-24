@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 export default function Search() {
+
   return (
     <div>
           <div className="search-books">
@@ -9,7 +10,10 @@ export default function Search() {
               <Link to='/' className="close-search">Close</Link>
               <div className="search-books-input-wrapper">
                 {}
-                <input type="text" placeholder="Search by title or author"/>
+                <input 
+                type="text" 
+                placeholder="Search by title or author"
+                />
 
               </div>
             </div>
