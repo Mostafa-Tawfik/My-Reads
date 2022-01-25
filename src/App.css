@@ -7,21 +7,26 @@ body {
 }
 
 body, .app {
-  background: white;
+  background: linear-gradient(90deg,
+      rgb(0, 247, 0) 33%,
+      rgb(44, 33, 20) 66%,
+      rgb(255, 0, 0) 100%), url('../public/images/Asset-3_10x.webp');
+  background-blend-mode:multiply;
+  background-size: cover;
 }
 
 /* main page */
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: rgba(139, 141, 33, 0.185);
   text-align: center;
 }
 
 .list-books-title h1 {
-  font-weight: 400;
+  font-weight: 800;
   margin: 0;
-  color: white;
+  color: antiquewhite;
 }
 
 .list-books-content {
@@ -41,10 +46,12 @@ body, .app {
 
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
+  color: antiquewhite;
 }
 
 .bookshelf-books {
   text-align: center;
+  background: rgb(250, 235, 215, 0.05);
 }
 
 .open-search {
@@ -131,6 +138,7 @@ button:active {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 1em;
 }
 
 .books-grid li {
@@ -140,11 +148,18 @@ button:active {
 
 .book {
   width: 140px;
+  color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
 }
 
 .book-title,
 .book-authors {
   font-size: 0.8em;
+  margin-right: auto;
+  text-align: left;
 }
 
 .book-title {
