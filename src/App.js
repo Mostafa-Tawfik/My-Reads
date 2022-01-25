@@ -28,9 +28,6 @@ export default function BooksApp() {
   }
 
  
-
-  console.log(books.shelf);
-  console.log(books);
   return (
     <div className="app">
       <Routes>
