@@ -21,9 +21,14 @@ export default function BooksApp() {
   },[]) 
 
   // a function to update shelf status on the API
-  function switchShelf(books, shelf) {
-    BooksAPI.update(books, shelf)
-  }
+  const switchShelf = (books, shelf) => {
+    BooksAPI.update(books, shelf).then(() => {
+    BooksAPI.getAll().then((books) => {
+    setBooks(books);
+    })
+    });
+ 
+   }
 
   return (
     <div className="app">
