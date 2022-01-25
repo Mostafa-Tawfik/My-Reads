@@ -17,13 +17,13 @@ export default function Home(props) {
   const addShelf = uniqueShelves.map(book => {
     return (
       <BookShelf 
+      switchShelf={props.switchShelf}
       key={book.id}
       {...book}
       {...props}
       />
       )
     })
-
     
   return (
 

@@ -8,8 +8,12 @@ import * as BooksAPI from './BooksAPI'
 
 export default function BooksApp() {
 
+  // init books state to use acorss the app
+
   const [books, setBooks] = React.useState([])
 
+  // fetch the data from the API
+  
   React.useEffect(()=>{
     BooksAPI.getAll().then((books) => {
       setBooks(books)
@@ -17,14 +21,20 @@ export default function BooksApp() {
     )
   },[]) 
 
-  function changeShelf() {
-
+  // a function to update shelf status on the API
+  
+  function switchShelf(books, shelf) {
+    BooksAPI.update(books, shelf) 
   }
+
+ 
+
+  console.log(books.shelf);
   console.log(books);
   return (
     <div className="app">
       <Routes>
-        <Route path='/' element={<Home books={books}/>}/>
+        <Route path='/' element={<Home books={books} switchShelf={switchShelf}/>}/>
         <Route path='/search' element={<Search/>}/>
         
       </Routes>

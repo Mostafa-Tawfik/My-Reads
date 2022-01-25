@@ -8,6 +8,7 @@ export default function BookShelf(props) {
   const addBook = props.books.filter(book => book.shelf === props.shelf).map( b => {
     return (
       <Books 
+      switchShelf={props.switchShelf}
         key={b.id}
         {...b}
       />
