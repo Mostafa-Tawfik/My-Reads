@@ -3,7 +3,6 @@ import React from 'react';
 export default function Books(props) {
 
   // a function to handle change on select drop
-
   function handleChange(event){
     props.switchShelf(props, event.target.value)
   }
@@ -15,7 +14,10 @@ export default function Books(props) {
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${props.imageLinks.thumbnail})` }}></div>
           <div className="book-shelf-changer">
 
-            <select onChange={handleChange} value={props.shelf}>
+            <select 
+              onChange={handleChange} 
+              value={props.shelf ? props.shelf : 'none'}
+              >
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>

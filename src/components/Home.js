@@ -5,26 +5,37 @@ import BookShelf from './BookShelf'
 
 export default function Home(props) {
 
-  // generate new array from books without duplicated shelf values
+  // init a Shelves array to hold shelves
+  const Shelves = [
+    {
+      id: 1,
+      shelf: 'currentlyReading',
+      shelfName: 'Currently Reading'
+    },
+    {
+      id: 2,
+      shelf: 'wantToRead',
+      shelfName: 'Want To Read'
+    },
+    {
+      id: 3,
+      shelf: 'read',
+      shelfName: 'Read'
+    }
+  ]
 
-  const key = 'shelf';
-
-  const uniqueShelves = [...new Map(props.books.map(shelf =>
-  [shelf[key], shelf])).values()];
-  
-  // map over the new array and render the shelves
-
-  const addShelf = uniqueShelves.map(book => {
+  // render shelves by mapping over Shelves
+  const addShelf = Shelves.map(book => {
     return (
-      <BookShelf 
-      switchShelf={props.switchShelf}
-      key={book.id}
-      {...book}
-      {...props}
-      />
-      )
-    })
-    
+      <BookShelf
+        key={book.id}
+        book={book}
+        {...book}
+        {...props}
+        />
+    )
+  })
+
   return (
 
     <div>

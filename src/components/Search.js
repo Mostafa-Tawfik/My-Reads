@@ -6,47 +6,44 @@ import Books from './Books';
 export default function Search(props) {
 
   // init states to hold querys and the matched results
-
   const [query, setQuery] = React.useState('')
   const [matched, setMatched] = React.useState([])
 
   console.log(matched);
 
   // a function to set source of truth to the queries state
-
   function handleChange(event) {
     setQuery(event.target.value)
   }
   
   // request query though the API
-  
   React.useEffect(()=>{
 
     if (query) {
       BooksAPI.search(query).then(data => {
 
         // handle the error due to init empty strings
-
         if (data.error) {
           setMatched([])
         } else {
 
           // update the matched state with the comeback data
-
           setMatched(data)
         }
     })
+    }else{
+      setMatched([])
     }
    },[query]) 
 
   //  render the matched books
-
   const addBook = matched.map( b => {
+
   return (
     <Books 
-    switchShelf={props.switchShelf}
-    key={b.id}
-    {...b}
+      switchShelf={props.switchShelf}
+      key={b.id}
+      {...b}
     />
     )
   })

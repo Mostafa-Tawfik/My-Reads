@@ -3,8 +3,7 @@ import Books from './Books';
 
 export default function BookShelf(props) {
 
-  // filter the books array to show each book that matches the shelf name
-
+  // filter the books array to render each book that matches the shelf name
   const addBook = props.books.filter(book => book.shelf === props.shelf).map( b => {
     return (
       <Books 
@@ -19,7 +18,7 @@ export default function BookShelf(props) {
   
     <div>
       <div className="bookshelf">
-        <h2 className="bookshelf-title">{props.shelf}</h2>
+        <h2 className="bookshelf-title">{props.shelfName}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
               {addBook}

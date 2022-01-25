@@ -9,7 +9,6 @@ import * as BooksAPI from './BooksAPI'
 export default function BooksApp() {
 
   // init books state to use acorss the app
-
   const [books, setBooks] = React.useState([])
 
   // fetch the data from the API
@@ -22,12 +21,17 @@ export default function BooksApp() {
   },[]) 
 
   // a function to update shelf status on the API
-  
   function switchShelf(books, shelf) {
-    BooksAPI.update(books, shelf) 
+    BooksAPI.update(books, shelf)
+    // setBooks(prev => {
+    //   return {
+    //     ...prev,
+    //     books
+    //   }
+    // })
+
   }
 
- 
   return (
     <div className="app">
       <Routes>
