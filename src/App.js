@@ -4,13 +4,23 @@ import './App.css';
 // import logo from './logo.svg';
 import Home from './components/Home';
 import Search from './components/Search';
-import Data from './Data'
+import * as BooksAPI from './BooksAPI'
 
 export default function BooksApp() {
 
-  const [books, setBooks] = React.useState(Data)
+  const [books, setBooks] = React.useState([])
 
-  // console.log(books);
+  React.useEffect(()=>{
+    BooksAPI.getAll().then((books) => {
+      setBooks(books)
+    }
+    )
+  },[]) 
+
+  function changeShelf() {
+
+  }
+  console.log(books);
   return (
     <div className="app">
       <Routes>
