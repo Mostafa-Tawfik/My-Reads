@@ -7,11 +7,14 @@ export default function Books(props) {
     props.switchShelf(props, event.target.value)
   }
 
+  // check if thumbnail is not found put empty string
+  let checkThumbnail = props.imageLinks ? props.imageLinks.thumbnail : '';
+
   return (
     <div>
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${props.imageLinks.thumbnail})` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${checkThumbnail})` }}></div>
           <div className="book-shelf-changer">
 
             <select 

@@ -23,13 +23,6 @@ export default function BooksApp() {
   // a function to update shelf status on the API
   function switchShelf(books, shelf) {
     BooksAPI.update(books, shelf)
-    // setBooks(prev => {
-    //   return {
-    //     ...prev,
-    //     books
-    //   }
-    // })
-
   }
 
   return (
