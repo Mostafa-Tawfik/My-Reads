@@ -3,7 +3,9 @@ import Books from './Books';
 
 export default function BookShelf(props) {
 
-  const addBook = props.books.map( b => {
+  // filter the books array to show each book that matches the shelf name
+
+  const addBook = props.books.filter(book => book.shelf === props.shelf).map( b => {
     return (
       <Books 
         key={b.id}
@@ -12,7 +14,6 @@ export default function BookShelf(props) {
     )
   })
 
-  // console.log(addBook);
   return (
   
     <div>
