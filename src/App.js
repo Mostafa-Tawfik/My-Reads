@@ -32,7 +32,7 @@ export default function BooksApp() {
     <div className="app">
       <Routes>
         <Route path='/' element={<Home books={books} switchShelf={switchShelf}/>}/>
-        <Route path='/search' element={<Search/>}/>
+        <Route path='/search' element={<Search books={books} switchShelf={switchShelf}/>}/>
         
       </Routes>
     </div>

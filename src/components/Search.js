@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../BooksAPI'
+import Books from './Books';
 
-export default function Search() {
+export default function Search(props) {
 
   // init states to hold querys and the matched results
 
   const [query, setQuery] = React.useState('')
-  const [matched, setMatched] = React.useState('')
+  const [matched, setMatched] = React.useState([])
 
   console.log(matched);
 
@@ -27,7 +28,7 @@ export default function Search() {
         // handle the error due to init empty strings
 
         if (data.error) {
-          setMatched('');
+          setMatched([])
         } else {
 
           // update the matched state with the comeback data
@@ -37,6 +38,18 @@ export default function Search() {
     })
     }
    },[query]) 
+
+  //  render the matched books
+
+  const addBook = matched.map( b => {
+  return (
+    <Books 
+    switchShelf={props.switchShelf}
+    key={b.id}
+    {...b}
+    />
+    )
+  })
 
   return (
     <div>
@@ -52,11 +65,12 @@ export default function Search() {
                 value={query}
                 onChange={handleChange}
                 />
-
               </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">
+                {addBook}
+              </ol>
             </div>
           </div>
     </div>
