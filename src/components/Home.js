@@ -3,38 +3,28 @@ import Header from './Header'
 import { Link } from 'react-router-dom'
 import BookShelf from './BookShelf'
 
-export default function Shelves(props) {
+export default function Home(props) {
 
-  const [shelves, setShelves] = React.useState(
-    [
-      {
-        id: 1,
-        currentlyReading: [],
-        shelfName: 'Currently Reading'
-      },
-      {
-        id: 2,
-        whatToRead: [],
-        shelfName: 'What To Read'
-      },
-      {
-        id:3,
-        read: [],
-        shelfName: 'Read'
-      }
-    ]
-  )
+  // generate new array from books without duplicated shelf values
 
-  const addShelf = shelves.map( data => {
+  const key = 'shelf';
+
+  const uniqueShelves = [...new Map(props.books.map(shelf =>
+  [shelf[key], shelf])).values()];
+  
+  // map over the new array and render the shelves
+
+  const addShelf = uniqueShelves.map(book => {
     return (
       <BookShelf 
-        key={data.id}
-        {...data}
-        {...props}
+      key={book.id}
+      {...book}
+      {...props}
       />
-    )
-  })
+      )
+    })
 
+    
   return (
 
     <div>

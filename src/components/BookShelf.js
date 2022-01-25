@@ -3,24 +3,24 @@ import Books from './Books';
 
 export default function BookShelf(props) {
 
-  const addBook = props.books.map( data => {
+  const addBook = props.books.map( b => {
     return (
       <Books 
-        key={data.id}
-        {...data}
+        key={b.id}
+        {...b}
       />
     )
   })
+
+  // console.log(addBook);
   return (
   
     <div>
       <div className="bookshelf">
-        <h2 className="bookshelf-title">{props.shelfName}</h2>
+        <h2 className="bookshelf-title">{props.shelf}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            <li>
               {addBook}
-            </li>
           </ol>
         </div>
       </div>
