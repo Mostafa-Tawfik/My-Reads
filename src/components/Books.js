@@ -9,7 +9,6 @@ export default function Books(props) {
 
   // check if thumbnail is not found put empty string
   let checkThumbnail = props.imageLinks ? props.imageLinks.thumbnail : '';
-
   return (
     <div>
       <div className="book">
@@ -31,7 +30,7 @@ export default function Books(props) {
           </div>
         </div>
         <div className="book-title">{props.title}</div>
-        <div className="book-authors">{props.authors}</div>
+        <div className="book-authors">{props.authors.join()}</div> 
       </div>
     </div>
   )

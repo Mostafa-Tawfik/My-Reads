@@ -9,7 +9,9 @@ export default function Search(props) {
   const [query, setQuery] = React.useState('')
   const [matched, setMatched] = React.useState([])
 
+  console.log(props.books);
   console.log(matched);
+  
 
   // a function to set source of truth to the queries state
   function handleChange(event) {
@@ -38,6 +40,15 @@ export default function Search(props) {
 
   //  render the matched books
   const addBook = matched.map( b => {
+
+    if(b.id === props.books.id) {
+      setMatched(prev => {
+        return {
+          ...prev,
+          shelf: props.books.id
+        }
+      })
+    }
 
   return (
     <Books 

@@ -4,7 +4,8 @@ import './App.css';
 // import logo from './logo.svg';
 import Home from './components/Home';
 import Search from './components/Search';
-import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI';
+import NotFound from './components/NotFound';
 
 export default function BooksApp() {
 
@@ -12,7 +13,6 @@ export default function BooksApp() {
   const [books, setBooks] = React.useState([])
 
   // fetch the data from the API
-  
   React.useEffect(()=>{
     BooksAPI.getAll().then((books) => {
       setBooks(books)
@@ -35,7 +35,7 @@ export default function BooksApp() {
       <Routes>
         <Route path='/' element={<Home books={books} switchShelf={switchShelf}/>}/>
         <Route path='/search' element={<Search books={books} switchShelf={switchShelf}/>}/>
-        
+        <Route path='*' element={<NotFound />} />        
       </Routes>
     </div>
   )
