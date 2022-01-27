@@ -246,3 +246,16 @@ button:active {
     transform: rotate(360deg);
   }
 }
+
+/* Not Found Page */
+
+.nf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nf h1{
+  color: antiquewhite;
+}

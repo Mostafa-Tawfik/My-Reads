@@ -12,6 +12,8 @@ export default function BooksApp() {
   // init books state to use acorss the app
   const [myBooks, setMyBooks] = React.useState([])
 
+  console.log(myBooks);
+
   // fetch the data from the API
   React.useEffect(()=>{
     BooksAPI.getAll().then((books) => {
@@ -27,8 +29,17 @@ export default function BooksApp() {
     setMyBooks(books);
     })
     });
- 
    }
+
+  //  re-render locally works on the home page but when changing from search page didn't work, I will try to figure it out later
+
+  //  const switchShelf = (updatedBook, updatedShelf)=> {
+  //   BooksAPI.update(updatedBook, updatedShelf).then(() => {
+  //     setMyBooks(prev => prev.map(oldBook => {
+  //       return updatedBook.id === oldBook.id ? {...oldBook, shelf: updatedShelf} : oldBook
+  //     }))
+  //   })
+  //  }
 
   return (
     <div className="app">

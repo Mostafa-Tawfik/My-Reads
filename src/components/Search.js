@@ -9,6 +9,8 @@ export default function Search(props) {
   const [query, setQuery] = React.useState('')
   const [matchedBooks, setMatchedBooks] = React.useState([])
 
+  console.log(matchedBooks);
+
 
 
   // a function to set source of truth to the query state
@@ -58,6 +60,7 @@ export default function Search(props) {
       key={matched.id}
       switchShelf={props.switchShelf}
       {...matched}
+      {...props}
     />
     )
   })
