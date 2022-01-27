@@ -10,6 +10,9 @@ export default function Books(props) {
   // check if thumbnail is not found put empty string
   let checkThumbnail = props.imageLinks ? props.imageLinks.thumbnail : ''
 
+  // check if there are multiple authors put ',' between them and if there are no authors set to value to an empty string
+  let checkAuthors = props.authors ? props.authors.join(' , ') : ''
+
   return (
     <div>
       <div className="book">
@@ -31,7 +34,7 @@ export default function Books(props) {
           </div>
         </div>
         <div className="book-title">{props.title}</div>
-        <div className="book-authors">{props.authors.join()}</div> 
+        <div className="book-authors">{checkAuthors}</div> 
       </div>
     </div>
   )
