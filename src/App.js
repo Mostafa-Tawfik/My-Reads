@@ -12,8 +12,6 @@ export default function BooksApp() {
   // init books state to use acorss the app
   const [myBooks, setMyBooks] = React.useState([])
 
-  console.log(myBooks);
-
   // fetch the data from the API
   React.useEffect(()=>{
     BooksAPI.getAll().then((books) => {
