@@ -7,13 +7,11 @@ export default function Search(props) {
 
   // init states to hold querys and the matched results
   const [query, setQuery] = React.useState('')
-  const [matched, setMatched] = React.useState([])
+  const [matchedBooks, setMatchedBooks] = React.useState([])
 
-  console.log(props.books);
-  console.log(matched);
-  
 
-  // a function to set source of truth to the queries state
+
+  // a function to set source of truth to the query state
   function handleChange(event) {
     setQuery(event.target.value)
   }
@@ -21,40 +19,45 @@ export default function Search(props) {
   // request query though the API
   React.useEffect(()=>{
 
+    // how to hanlde query
+    // if we have values on query state
     if (query) {
-      BooksAPI.search(query).then(data => {
+      BooksAPI.search(query).then(data => (
 
-        // handle the error due to init empty strings
-        if (data.error) {
-          setMatched([])
-        } else {
+      // if we input wrong query and got error return to default 
+      data.error ? 
+      setMatchedBooks([]) :       
 
-          // update the matched state with the comeback data
-          setMatched(data)
-        }
-    })
+      // update the matched state with the comeback data
+      setMatchedBooks(data)
+        
+    ))
     }else{
-      setMatched([])
+      // handle the error due to init empty strings
+      setMatchedBooks([])
     }
    },[query]) 
 
   //  render the matched books
-  const addBook = matched.map( b => {
+  const addBook = matchedBooks.map( matched => {
 
-    if(b.id === props.books.id) {
-      setMatched(prev => {
-        return {
-          ...prev,
-          shelf: props.books.id
-        }
-      })
-    }
+    // set a varibale to hold the matched books shelf value and set default as 'none'
+    let setShelf = 'none'
 
+    // if myBooks id matches the matched books id, set shelf value for matched books as myBooks shelf value 
+    props.myBooks.map(book => (
+      book.id === matched.id ?
+      setShelf = book.shelf :
+      ''
+      ))
+
+      matched.shelf = setShelf
+      
   return (
     <Books 
+      key={matched.id}
       switchShelf={props.switchShelf}
-      key={b.id}
-      {...b}
+      {...matched}
     />
     )
   })

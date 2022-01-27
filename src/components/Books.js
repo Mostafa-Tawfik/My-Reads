@@ -8,7 +8,8 @@ export default function Books(props) {
   }
 
   // check if thumbnail is not found put empty string
-  let checkThumbnail = props.imageLinks ? props.imageLinks.thumbnail : '';
+  let checkThumbnail = props.imageLinks ? props.imageLinks.thumbnail : ''
+
   return (
     <div>
       <div className="book">
@@ -18,7 +19,7 @@ export default function Books(props) {
 
             <select 
               onChange={handleChange} 
-              value={props.shelf ? props.shelf : 'none'}
+              value={props.shelf}
               >
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>

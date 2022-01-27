@@ -10,12 +10,12 @@ import NotFound from './components/NotFound';
 export default function BooksApp() {
 
   // init books state to use acorss the app
-  const [books, setBooks] = React.useState([])
+  const [myBooks, setMyBooks] = React.useState([])
 
   // fetch the data from the API
   React.useEffect(()=>{
     BooksAPI.getAll().then((books) => {
-      setBooks(books)
+      setMyBooks(books)
     }
     )
   },[]) 
@@ -24,7 +24,7 @@ export default function BooksApp() {
   const switchShelf = (books, shelf) => {
     BooksAPI.update(books, shelf).then(() => {
     BooksAPI.getAll().then((books) => {
-    setBooks(books);
+    setMyBooks(books);
     })
     });
  
@@ -33,8 +33,8 @@ export default function BooksApp() {
   return (
     <div className="app">
       <Routes>
-        <Route path='/' element={<Home books={books} switchShelf={switchShelf}/>}/>
-        <Route path='/search' element={<Search books={books} switchShelf={switchShelf}/>}/>
+        <Route path='/' element={<Home myBooks={myBooks} switchShelf={switchShelf}/>}/>
+        <Route path='/search' element={<Search myBooks={myBooks} switchShelf={switchShelf}/>}/>
         <Route path='*' element={<NotFound />} />        
       </Routes>
     </div>

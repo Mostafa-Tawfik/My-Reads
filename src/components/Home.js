@@ -29,7 +29,6 @@ export default function Home(props) {
     return (
       <BookShelf
         key={book.id}
-        book={book}
         {...book}
         {...props}
         />
