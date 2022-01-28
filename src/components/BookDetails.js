@@ -16,7 +16,7 @@ const BookDetails = () => {
       BooksAPI.get(params.bookId).then(book => {
         SetShowBook(book)
       })
-    },[])
+    },[params])
 
     // check for thumbnail
     let checkThumbnail = showBook.imageLinks ? showBook.imageLinks.thumbnail : ''
