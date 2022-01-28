@@ -17,14 +17,20 @@ body, .app {
 
 /* main page */
 
-.list-books-title {
+/* .list-books-title {
   padding: 10px 0;
   background: rgba(139, 141, 33, 0.185);
   text-align: center;
-}
+} */
 
 .list-books-title h1 {
-  font-weight: 800;
+  font-weight: 700;
+  margin: 0;
+  color:rgb(255, 200, 128);
+}
+
+.list-books-title h4 {
+  font-weight: 400;
   margin: 0;
   color: antiquewhite;
 }
@@ -46,7 +52,7 @@ body, .app {
 
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
-  color: antiquewhite;
+  color:rgb(255, 200, 128);
 }
 
 .bookshelf-books {
@@ -153,6 +159,11 @@ button:active {
   flex-direction: column;
   align-items: left;
   justify-content: center;
+  transition: 0.8s;
+}
+
+.book:hover {
+  transform: scale(1.1);
 }
 
 .book-title,
@@ -217,8 +228,18 @@ button:active {
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 7vmin;
   pointer-events: none;
+  right: auto;
+  margin-right: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  background: rgba(139, 141, 33, 0.185);
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -259,3 +280,69 @@ button:active {
 .nf h1{
   color: antiquewhite;
 }
+
+/* BookDeatails Page */
+
+.bookdetails-holder {
+  color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.bookdetails-holder >h4{
+  margin-top: 0;
+}
+.bookdetails-holder >h1{
+  margin-bottom: 0;
+  color:rgb(255, 200, 128);
+}
+
+.showBook-cover{
+  width: 180px;
+  height: 270px;
+}
+
+.bookdetails-main {
+  display: flex;
+  gap: 2em;
+}
+
+span {
+  font-size: 1rem;
+  color:rgb(255, 200, 128);
+}
+
+.bookdetails-infos {
+
+}
+
+.bookdetails-description {
+  padding: 4em;
+}
+
+.bookdetails-description p {
+  padding: 1em;
+  background: rgb(250, 235, 215, 0.05);
+}
+
+.Back {
+  margin-right: auto;
+  display: block;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 53px;
+  background-image: url('./icons/arrow-back.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  font-size: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+

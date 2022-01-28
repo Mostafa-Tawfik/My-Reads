@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 export default function Books(props) {
 
@@ -13,29 +14,38 @@ export default function Books(props) {
   // check if there are multiple authors put ',' between them and if there are no authors set to value to an empty string
   let checkAuthors = props.authors ? props.authors.join(' , ') : ''
 
+  // function goto(){
+  //   <Link to='/search'></Link>
+  // }
   return (
     <div>
-      <div className="book">
-        <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${checkThumbnail})` }}></div>
-          <div className="book-shelf-changer">
-
-            <select 
-              onChange={handleChange} 
-              value={props.shelf}
+          <div className="book">
+            <div className="book-top">
+              <Link
+                style={{ display: "block", margin: "1rem 0" }}
+                to={`/books/${props.id}`}
+                key={props.id}
               >
-              <option value="move" disabled>Move to...</option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
-            </select>
-            
+                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${checkThumbnail})` }}></div>
+              </Link>
+              <div className="book-shelf-changer">
+
+                <select 
+                  onChange={handleChange} 
+                  value={props.shelf}
+                  >
+                  <option value="move" disabled>Move to...</option>
+                  <option value="currentlyReading">Currently Reading</option>
+                  <option value="wantToRead">Want to Read</option>
+                  <option value="read">Read</option>
+                  <option value="none">None</option>
+                </select>
+                
+              </div>
+            </div>
+            <div className="book-title">{props.title}</div>
+            <div className="book-authors">{checkAuthors}</div> 
           </div>
-        </div>
-        <div className="book-title">{props.title}</div>
-        <div className="book-authors">{checkAuthors}</div> 
-      </div>
     </div>
   )
 }

@@ -1,16 +1,18 @@
 import React from 'react'
-import {Routes, Route} from 'react-router-dom';
 import './App.css';
-// import logo from './logo.svg';
+import {Routes, Route} from 'react-router-dom';
 import Home from './components/Home';
 import Search from './components/Search';
 import * as BooksAPI from './BooksAPI';
 import NotFound from './components/NotFound';
+import BookDetails from './components/BookDetails';
 
 export default function BooksApp() {
 
   // init books state to use acorss the app
   const [myBooks, setMyBooks] = React.useState([])
+
+console.log(myBooks);
 
   // fetch the data from the API
   React.useEffect(()=>{
@@ -45,6 +47,7 @@ export default function BooksApp() {
         <Route path='/' element={<Home myBooks={myBooks} switchShelf={switchShelf}/>}/>
         <Route path='/search' element={<Search myBooks={myBooks} switchShelf={switchShelf}/>}/>
         <Route path='*' element={<NotFound />} />        
+        <Route path='/books/:bookId' element={<BookDetails myBooks={myBooks}/>} />        
       </Routes>
     </div>
   )
