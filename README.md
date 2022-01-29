@@ -9,6 +9,9 @@ Create a bookshelf app that allows you to select and categorize books you have r
 
 <br>
 
+# Project Preview
+![Alt Text](./myReads.jpeg?raw=true 'Project Preview')
+
 # TL;DR
 
 To get started developing right away:
